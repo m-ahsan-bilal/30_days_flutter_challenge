@@ -52,7 +52,7 @@ class _DayOneState extends State<DayTwo> {
         title: Text(
           'Day 2',
           style: TextStyle(
-            color: Colors.lightGreen.shade300,
+            color: Colors.lightGreen.shade500,
           ),
         ),
         centerTitle: true,
