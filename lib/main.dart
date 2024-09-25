@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/days/day_two.dart';
-import 'package:flutter_challenge/home/home.dart';
 import 'package:flutter_challenge/utils/routes.dart';
 
 void main() {

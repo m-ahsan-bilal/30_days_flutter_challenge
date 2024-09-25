@@ -18,5 +18,15 @@ class WeatherService {
   }
 
   // List of cities to fetch data for
-  List<String> cities = ['New York', 'London', 'Tokyo', 'Paris', 'Karachi'];
+  List<String> cities = [
+    'New York',
+    'London',
+    'Tokyo',
+    'Paris',
+    'Karachi',
+    'Mumbai',
+    'Lahore',
+    'Peshawar',
+    'Islamabad'
+  ];
 }

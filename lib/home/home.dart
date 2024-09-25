@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/utils/day_button.dart';
-import 'package:flutter_challenge/utils/routes.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -67,6 +66,16 @@ class _FlutterChallengeState extends State<FlutterChallenge> {
                   title: 'Day 6',
                   onPressed: () {
                     context.go('/day_six');
+                  }),
+              DayButton(
+                  title: 'Day 7',
+                  onPressed: () {
+                    context.go('/day_seven');
+                  }),
+              DayButton(
+                  title: 'Day 7',
+                  onPressed: () {
+                    context.go('/day_eight');
                   }),
             ],
           ),

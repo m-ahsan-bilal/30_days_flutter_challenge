@@ -16,8 +16,8 @@ class MyButton extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 20.0),
         decoration: BoxDecoration(
             color: Colors.black, borderRadius: BorderRadius.circular(10)),
-        child: Center(
-          child: const Text(
+        child: const Center(
+          child: Text(
             'Sign In',
             style: TextStyle(
               color: Colors.white,
