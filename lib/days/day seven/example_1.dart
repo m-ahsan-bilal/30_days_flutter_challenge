@@ -45,7 +45,7 @@ class _Example1State extends State<Example1> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.save,
             size: 150,
           ),
@@ -57,9 +57,10 @@ class _Example1State extends State<Example1> {
                 if (value == null || value.isEmpty) {
                   print('Please Enter Something To Save');
                 }
+                return null;
               },
               focusNode: saveFocus),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           MyButton(
@@ -71,7 +72,7 @@ class _Example1State extends State<Example1> {
               prefs.setString(KEYNAME, save);
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Text(saveValue),

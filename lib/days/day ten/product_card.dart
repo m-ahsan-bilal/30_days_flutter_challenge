@@ -22,10 +22,11 @@ class ProductCard extends StatelessWidget {
             fit: BoxFit.cover,
           )),
           Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 product.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               )),
         ],
       ),

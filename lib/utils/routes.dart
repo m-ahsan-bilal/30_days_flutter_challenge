@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/days/day%20eleven/day_eleven.dart';
 import 'package:flutter_challenge/days/day%20seven/example_1.dart';
 import 'package:flutter_challenge/days/day%20seven/example_2.dart';
 import 'package:flutter_challenge/days/day%20ten/day_ten.dart';
@@ -79,5 +80,10 @@ List<RouteBase> appRoutesList = [
     path: '/day_ten',
     name: "/day_ten",
     builder: (BuildContext context, GoRouterState state) => const DayTen(),
+  ),
+  GoRoute(
+    path: '/day_11',
+    name: "/day_11",
+    builder: (BuildContext context, GoRouterState state) => const DayEleven(),
   ),
 ];

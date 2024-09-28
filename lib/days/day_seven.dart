@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/utils/day_button.dart';
-import 'package:flutter_challenge/utils/my_button.dart';
-import 'package:flutter_challenge/utils/my_text_field.dart';
 import 'package:go_router/go_router.dart';
 
 class DaySeven extends StatefulWidget {

@@ -27,9 +27,9 @@ class DayTen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // no of columns
                 crossAxisSpacing: 10.0, // space btx columns
                 mainAxisSpacing: 10.0, // btw rows

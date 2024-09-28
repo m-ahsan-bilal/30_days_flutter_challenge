@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DayEight extends StatelessWidget {
+  const DayEight({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,29 +25,29 @@ class DayEight extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Displaying Images From The Web ',
                 style: TextStyle(
                     color: Colors.black87,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Text('Image from the Web'),
-              SizedBox(height: 20),
+              const Text('Image from the Web'),
+              const SizedBox(height: 20),
               Image.network(
                 'https://img.icons8.com/?size=100&id=pCvIfmctRaY8&format=png&color=000000',
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) {
                     return child;
                   } else {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   }
                 },
                 errorBuilder: (context, error, stackTrace) {
-                  return Text('Failed to load image');
+                  return const Text('Failed to load image');
                 },
               ),
             ],

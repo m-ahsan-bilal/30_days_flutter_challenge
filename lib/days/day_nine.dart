@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DayNine extends StatelessWidget {
-  const DayNine({Key? key}) : super(key: key);
+  const DayNine({super.key});
 
   // Simulate an asynchronous data fetch
   Future<String> fetchData() async {
@@ -31,7 +31,7 @@ class DayNine extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text(
+          const Text(
             'FutureBuilder Handling',
             style: TextStyle(
               color: Colors.black,
@@ -39,7 +39,7 @@ class DayNine extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
           Center(

@@ -29,7 +29,7 @@ class _Example2State extends State<Example2> {
               onPressed: () {
                 context.go('/day_seven');
               },
-              icon: Icon(Icons.arrow_back)),
+              icon: const Icon(Icons.arrow_back)),
         ],
       ),
     );
