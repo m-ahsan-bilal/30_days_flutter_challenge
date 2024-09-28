@@ -44,13 +44,11 @@ class _DayOneState extends State<DayTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Day 2',
           style: TextStyle(

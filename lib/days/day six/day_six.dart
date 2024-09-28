@@ -17,13 +17,11 @@ class _DaySixState extends State<DaySix> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Day 6',
           style: TextStyle(

@@ -13,13 +13,11 @@ class DayTen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade500,
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Day 10',
           style: TextStyle(

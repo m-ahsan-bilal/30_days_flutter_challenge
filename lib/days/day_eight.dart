@@ -7,13 +7,11 @@ class DayEight extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.go('/');
-                },
-                icon: const Icon(Icons.arrow_back))
-          ],
+          leading: IconButton(
+              onPressed: () {
+                context.go('/');
+              },
+              icon: const Icon(Icons.arrow_back)),
           title: Text(
             'Day 8',
             style: TextStyle(color: Colors.lightGreen.shade400),

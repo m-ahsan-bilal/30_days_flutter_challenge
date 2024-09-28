@@ -16,13 +16,11 @@ class _DaySevenState extends State<DaySeven> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Day 7',
           style: TextStyle(color: Colors.lightGreen.shade400),
