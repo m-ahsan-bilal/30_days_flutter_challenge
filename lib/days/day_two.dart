@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/utils/dialoge.dart';
+
 import 'package:flutter_challenge/utils/my_button.dart';
 import 'package:flutter_challenge/utils/my_text_field.dart';
 import 'package:flutter_challenge/utils/square_tile.dart';
@@ -147,10 +149,18 @@ class _DayOneState extends State<DayTwo> {
                         String email = emailController.text.trim();
                         String password = passwordController.text.trim();
 
-                        // Implement login logic
                         debugPrint('Email: $email, Password: $password');
+
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const SuccessDialog(
+                                message: "Validation successful!");
+                          },
+                        );
                       }
                     },
+                    title: "Sign In",
                   ),
                   const SizedBox(
                     height: 20,

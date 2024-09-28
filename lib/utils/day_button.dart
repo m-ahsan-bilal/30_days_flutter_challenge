@@ -30,15 +30,15 @@ class DayButton extends StatelessWidget {
           width: screenWidth * 0.9, // Button width is 90% of screen width
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Colors.blueAccent, Colors.lightBlue],
+              colors: [Colors.blueGrey, Colors.grey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.4),
                 offset: const Offset(0, 4),
-                blurRadius: 10,
+                blurRadius: 15,
               ),
             ],
             borderRadius: BorderRadius.circular(15),

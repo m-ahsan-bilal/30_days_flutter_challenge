@@ -17,6 +17,7 @@ class _FlutterChallengeState extends State<FlutterChallenge> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      // backgroundColor: Colors.grey.sha,
       appBar: AppBar(
         title: Text(
           '30 Days Of Flutter',
@@ -28,13 +29,13 @@ class _FlutterChallengeState extends State<FlutterChallenge> {
         centerTitle: true,
         // backgroundColor: Colors.grey[100],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          width: screenWidth,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade300,
-          ),
+      body: Container(
+        height: screenHeight,
+        width: screenWidth,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+        ),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               DayButton(
@@ -73,9 +74,19 @@ class _FlutterChallengeState extends State<FlutterChallenge> {
                     context.go('/day_seven');
                   }),
               DayButton(
-                  title: 'Day 7',
+                  title: 'Day 8',
                   onPressed: () {
                     context.go('/day_eight');
+                  }),
+              DayButton(
+                  title: 'Day 9',
+                  onPressed: () {
+                    context.go('/day_nine');
+                  }),
+              DayButton(
+                  title: 'Day 10',
+                  onPressed: () {
+                    context.go('/day_ten');
                   }),
             ],
           ),
