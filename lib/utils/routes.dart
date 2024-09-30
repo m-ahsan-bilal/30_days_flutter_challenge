@@ -3,6 +3,10 @@ import 'package:flutter_challenge/days/day%20eleven/day_eleven.dart';
 import 'package:flutter_challenge/days/day%20seven/example_1.dart';
 import 'package:flutter_challenge/days/day%20seven/example_2.dart';
 import 'package:flutter_challenge/days/day%20ten/day_ten.dart';
+import 'package:flutter_challenge/days/day%20twelve/day%2013/13eg_1.dart';
+import 'package:flutter_challenge/days/day%20twelve/day%2013/day_13.dart';
+import 'package:flutter_challenge/days/day%20twelve/day_12.dart';
+import 'package:flutter_challenge/days/day%20twelve/example_rovider_1.dart';
 import 'package:flutter_challenge/days/day_eight.dart';
 import 'package:flutter_challenge/days/day_nine.dart';
 import 'package:flutter_challenge/days/day_one.dart';
@@ -85,5 +89,26 @@ List<RouteBase> appRoutesList = [
     path: '/day_11',
     name: "/day_11",
     builder: (BuildContext context, GoRouterState state) => const DayEleven(),
+  ),
+  GoRoute(
+    path: '/day_12',
+    name: "/day_12",
+    builder: (BuildContext context, GoRouterState state) => const DayTwelve(),
+  ),
+  GoRoute(
+    path: '/day_12_1',
+    name: "/day_12_1",
+    builder: (BuildContext context, GoRouterState state) =>
+        const ExampleProvider1(),
+  ),
+  GoRoute(
+    path: '/day_13',
+    name: "/day_13",
+    builder: (BuildContext context, GoRouterState state) => const Day13(),
+  ),
+  GoRoute(
+    path: '//13eg_1',
+    name: "//13eg_1",
+    builder: (BuildContext context, GoRouterState state) => const Day13Eg(),
   ),
 ];

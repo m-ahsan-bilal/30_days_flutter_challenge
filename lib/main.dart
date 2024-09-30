@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/days/day%20twelve/counter_model.dart';
 import 'package:flutter_challenge/utils/routes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CounterModel(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

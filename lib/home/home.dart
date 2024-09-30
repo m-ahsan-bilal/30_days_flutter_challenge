@@ -93,6 +93,16 @@ class _FlutterChallengeState extends State<FlutterChallenge> {
                   onPressed: () {
                     context.go('/day_11');
                   }),
+              DayButton(
+                  title: 'Day 12',
+                  onPressed: () {
+                    context.go('/day_12');
+                  }),
+              DayButton(
+                  title: 'Day 13',
+                  onPressed: () {
+                    context.go('/day_13');
+                  }),
             ],
           ),
         ),
