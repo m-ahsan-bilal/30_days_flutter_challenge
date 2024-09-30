@@ -11,12 +11,12 @@ class Day13 extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: Text('Day 13'),
+        title: const Text('Day 13'),
         leading: IconButton(
           onPressed: () {
             context.go('/');
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
       ),
@@ -31,10 +31,10 @@ class Day13 extends StatelessWidget {
                 context.go('/13eg_1');
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Center(
+            const Center(
               child: Text(
                 'Implementing The Animations In Flutter ',
                 style: TextStyle(

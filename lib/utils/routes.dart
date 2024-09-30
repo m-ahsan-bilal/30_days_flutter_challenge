@@ -107,8 +107,8 @@ List<RouteBase> appRoutesList = [
     builder: (BuildContext context, GoRouterState state) => const Day13(),
   ),
   GoRoute(
-    path: '//13eg_1',
-    name: "//13eg_1",
-    builder: (BuildContext context, GoRouterState state) => const Day13Eg(),
+    path: '/13eg_1',
+    name: "/13eg_1",
+    builder: (BuildContext context, GoRouterState state) => Day13Eg(),
   ),
 ];
