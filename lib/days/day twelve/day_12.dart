@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/days/day%20eleven/day_eleven.dart';
-import 'package:flutter_challenge/days/day%20twelve/example_rovider_1.dart';
 import 'package:flutter_challenge/utils/my_button.dart';
 import 'package:go_router/go_router.dart';
 

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_challenge/utils/my_button.dart';
 import 'package:go_router/go_router.dart';
 
-class Day13 extends StatelessWidget {
-  const Day13({super.key});
+class Day14 extends StatelessWidget {
+  const Day14({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: const Text('Day 13'),
+        title: const Text('Day 14'),
         leading: IconButton(
           onPressed: () {
             context.go('/');
@@ -27,7 +27,7 @@ class Day13 extends StatelessWidget {
             MyButton(
               title: "Example 1",
               onTap: () {
-                context.go('/13eg_1');
+                context.go('/login');
               },
             ),
             const SizedBox(
@@ -35,7 +35,7 @@ class Day13 extends StatelessWidget {
             ),
             const Center(
               child: Text(
-                'Implementing The Animations In Flutter ',
+                'Flutter Firebase Authentication ',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/days/day%20six/day_six.dart';
 import 'package:go_router/go_router.dart';
 
 class Example2 extends StatefulWidget {

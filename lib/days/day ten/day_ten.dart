@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/days/day%20ten/model_grid_view.dart';
 import 'package:flutter_challenge/days/day%20ten/product_card.dart';

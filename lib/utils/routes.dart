@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/days/day%2016/day_16.dart';
+import 'package:flutter_challenge/days/day%2017/day17.dart';
 import 'package:flutter_challenge/days/day%20eleven/day_eleven.dart';
 import 'package:flutter_challenge/days/day%20seven/example_1.dart';
 import 'package:flutter_challenge/days/day%20seven/example_2.dart';
@@ -7,6 +9,12 @@ import 'package:flutter_challenge/days/day%20twelve/day%2013/13eg_1.dart';
 import 'package:flutter_challenge/days/day%20twelve/day%2013/day_13.dart';
 import 'package:flutter_challenge/days/day%20twelve/day_12.dart';
 import 'package:flutter_challenge/days/day%20twelve/example_rovider_1.dart';
+import 'package:flutter_challenge/days/day14/auth/auth_page.dart';
+import 'package:flutter_challenge/days/day14/auth/homepage.dart';
+import 'package:flutter_challenge/days/day14/day14.dart';
+import 'package:flutter_challenge/days/day14/login.dart';
+import 'package:flutter_challenge/days/day14/register.dart';
+import 'package:flutter_challenge/days/day15/day15.dart';
 import 'package:flutter_challenge/days/day_eight.dart';
 import 'package:flutter_challenge/days/day_nine.dart';
 import 'package:flutter_challenge/days/day_one.dart';
@@ -22,7 +30,8 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final GoRouter basicRoutes = GoRouter(
   debugLogDiagnostics: true,
   navigatorKey: navigatorKey,
-  initialLocation: "/",
+  // initialLocation: "/",
+  initialLocation: "/auth",
   routes: appRoutesList,
   errorBuilder: (context, state) => Center(
     child: Container(
@@ -73,7 +82,7 @@ List<RouteBase> appRoutesList = [
   GoRoute(
     path: '/day_eight',
     name: "/day_eight",
-    builder: (BuildContext context, GoRouterState state) => DayEight(),
+    builder: (BuildContext context, GoRouterState state) => const DayEight(),
   ),
   GoRoute(
     path: '/day_nine',
@@ -110,5 +119,46 @@ List<RouteBase> appRoutesList = [
     path: '/13eg_1',
     name: "/13eg_1",
     builder: (BuildContext context, GoRouterState state) => Day13Eg(),
+  ),
+  GoRoute(
+    path: '/day_14',
+    name: "/day_14",
+    builder: (BuildContext context, GoRouterState state) => const Day14(),
+  ),
+  GoRoute(
+    path: '/login',
+    name: "/login",
+    builder: (BuildContext context, GoRouterState state) => Login(),
+  ),
+  GoRoute(
+    path: '/register',
+    name: "/register",
+    builder: (BuildContext context, GoRouterState state) => const Register(),
+  ),
+  GoRoute(
+    path: '/auth',
+    name: "/auth",
+    builder: (BuildContext context, GoRouterState state) => const AuthPage(),
+  ),
+  GoRoute(
+    path: '/home_page',
+    name: "/home_page",
+    builder: (BuildContext context, GoRouterState state) => HomePage(),
+  ),
+  GoRoute(
+    path: '/day_15',
+    name: "/day_15",
+    builder: (BuildContext context, GoRouterState state) => const Day15(),
+  ),
+  GoRoute(
+    path: '/day_16',
+    name: "/day_16",
+    builder: (BuildContext context, GoRouterState state) =>
+        const NoificationPage(),
+  ),
+  GoRoute(
+    path: '/day_17',
+    name: "/day_17",
+    builder: (BuildContext context, GoRouterState state) => const Crud(),
   ),
 ];
