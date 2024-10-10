@@ -35,7 +35,7 @@ class _NotificationAppState extends State<NotificationApp> {
         AndroidNotificationDetails(
       'your channel id',
       'your channel name',
-      // 'your channel description',
+      'your channel description',
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
