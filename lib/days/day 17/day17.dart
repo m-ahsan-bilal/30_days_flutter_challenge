@@ -27,7 +27,7 @@ class _CrudState extends State<Crud> {
       builder: (context) => AlertDialog(
         content: TextField(
           controller: textController,
-          decoration: InputDecoration(hintText: 'Enter your note'),
+          decoration: const InputDecoration(hintText: 'Enter your note'),
         ),
         actions: [
           ElevatedButton(
@@ -41,7 +41,7 @@ class _CrudState extends State<Crud> {
               textController.clear();
               Navigator.pop(context);
             },
-            child: Text('Save'),
+            child: const Text('Save'),
           ),
         ],
       ),
@@ -58,16 +58,17 @@ class _CrudState extends State<Crud> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('CRUD'),
+        title: const Text('CRUD'),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () => context.go('/'), icon: Icon(Icons.arrow_back)),
+            onPressed: () => context.go('/'),
+            icon: const Icon(Icons.arrow_back)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           openNoteBox();
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: firestoreServices.getNotesStream(),
@@ -96,7 +97,7 @@ class _CrudState extends State<Crud> {
               },
             );
           } else {
-            return Center(child: Text('No notes available'));
+            return const Center(child: Text('No notes available'));
           }
         },
       ),

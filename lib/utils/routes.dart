@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/days/day%2016/day_16.dart';
 import 'package:flutter_challenge/days/day%2017/day17.dart';
+import 'package:flutter_challenge/days/day%2018/auth/login_or_register.dart';
+import 'package:flutter_challenge/days/day%2018/cart.dart';
+import 'package:flutter_challenge/days/day%2018/dashboard.dart';
+import 'package:flutter_challenge/days/day%2018/day_18.dart';
+
+import 'package:flutter_challenge/days/day%2018/log_register/loginuser.dart';
+import 'package:flutter_challenge/days/day%2018/log_register/register_user.dart';
+import 'package:flutter_challenge/days/day%2018/settings.dart';
+
+import 'package:flutter_challenge/days/day%2018/user_profile.dart';
+import 'package:flutter_challenge/days/day%2020/counter_page.dart';
+import 'package:flutter_challenge/days/day%2021/day21.dart';
+import 'package:flutter_challenge/days/day%2021/examples/flex_example.dart';
+import 'package:flutter_challenge/days/day%2021/examples/profile_responsive_eg.dart';
+import 'package:flutter_challenge/days/day%2021/examples/responsive_dashboard.dart';
+import 'package:flutter_challenge/days/day%2022/chat_mini.dart';
 import 'package:flutter_challenge/days/day%20eleven/day_eleven.dart';
 import 'package:flutter_challenge/days/day%20seven/example_1.dart';
 import 'package:flutter_challenge/days/day%20seven/example_2.dart';
@@ -15,6 +31,7 @@ import 'package:flutter_challenge/days/day14/day14.dart';
 import 'package:flutter_challenge/days/day14/login.dart';
 import 'package:flutter_challenge/days/day14/register.dart';
 import 'package:flutter_challenge/days/day15/day15.dart';
+import 'package:flutter_challenge/days/day19.dart/day19.dart';
 import 'package:flutter_challenge/days/day_eight.dart';
 import 'package:flutter_challenge/days/day_nine.dart';
 import 'package:flutter_challenge/days/day_one.dart';
@@ -30,8 +47,9 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final GoRouter basicRoutes = GoRouter(
   debugLogDiagnostics: true,
   navigatorKey: navigatorKey,
-  // initialLocation: "/",
-  initialLocation: "/auth",
+  initialLocation: "/",
+  // initialLocation: "/auth",
+  // initialLocation: '/login_user',
   routes: appRoutesList,
   errorBuilder: (context, state) => Center(
     child: Container(
@@ -160,5 +178,89 @@ List<RouteBase> appRoutesList = [
     path: '/day_17',
     name: "/day_17",
     builder: (BuildContext context, GoRouterState state) => const Crud(),
+  ),
+  GoRoute(
+    path: '/day_18',
+    name: "/day_18",
+    builder: (BuildContext context, GoRouterState state) => const Day18(),
+  ),
+  GoRoute(
+    path: '/home_dash',
+    name: "/home_dash",
+    builder: (BuildContext context, GoRouterState state) => HomeDash(),
+  ),
+  GoRoute(
+    path: '/cart_view',
+    name: "/cart_view",
+    builder: (BuildContext context, GoRouterState state) => const Cart(),
+  ),
+  GoRoute(
+    path: '/user_view',
+    name: "/user_view",
+    builder: (BuildContext context, GoRouterState state) => const UserProfile(),
+  ),
+  GoRoute(
+    path: '/login_user',
+    name: "/login_user",
+    builder: (BuildContext context, GoRouterState state) => LoginUser(
+      onTap: () {},
+    ),
+  ),
+  GoRoute(
+    path: '/register_user',
+    name: "/register_user",
+    builder: (BuildContext context, GoRouterState state) => RegisterUser(),
+  ),
+  GoRoute(
+    path: '/login_register',
+    name: "/login_register",
+    builder: (BuildContext context, GoRouterState state) => LoginOrRegister(),
+  ),
+  GoRoute(
+    path: '/settings',
+    name: "settings",
+    builder: (BuildContext context, GoRouterState state) => SettingsPage(),
+  ),
+  // GoRoute(
+  //   path: '/food_page',
+  //   name: "food_page",
+  //   builder: (BuildContext context, GoRouterState state) => const FoodPage(food: food),
+  // ),
+  GoRoute(
+    path: '/day_19',
+    name: "day_19",
+    builder: (BuildContext context, GoRouterState state) => const LoginUser19(),
+  ),
+  GoRoute(
+    path: '/day_20 ',
+    name: "day_20",
+    builder: (BuildContext context, GoRouterState state) => CounterPage(),
+  ),
+  GoRoute(
+    path: '/responsive_1',
+    name: "responsive_1",
+    builder: (BuildContext context, GoRouterState state) =>
+        ResponsiveDashboard(),
+  ),
+  GoRoute(
+    path: '/responsive_2',
+    name: "responsive_2",
+    builder: (BuildContext context, GoRouterState state) => FlexExample(),
+  ),
+  GoRoute(
+    path: '/responsive_3',
+    name: "responsive_3",
+    builder: (BuildContext context, GoRouterState state) =>
+        ResponsiveProfilePage(),
+  ),
+  GoRoute(
+    path: '/day_21 ',
+    name: "day_21",
+    builder: (BuildContext context, GoRouterState state) => Day21(),
+  ),
+  GoRoute(
+    path: '/day_22 ',
+    name: "day_22",
+    builder: (BuildContext context, GoRouterState state) => ChatScreen(),
   ),
 ];

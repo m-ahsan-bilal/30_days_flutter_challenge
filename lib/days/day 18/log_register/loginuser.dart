@@ -1,21 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/days/day14/auth/auth_page.dart';
-import 'package:flutter_challenge/utils/dialoge.dart';
 
 import 'package:flutter_challenge/utils/my_button.dart';
 import 'package:flutter_challenge/utils/my_text_field.dart';
 import 'package:flutter_challenge/utils/square_tile.dart';
 import 'package:go_router/go_router.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginUser extends StatefulWidget {
+  final void Function()? onTap;
 
+  const LoginUser({super.key, required this.onTap});
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginUser> createState() => _LoginUserState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginUserState extends State<LoginUser> {
   final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
 // obscure text
   bool _obscureText = true;
@@ -31,13 +31,23 @@ class _LoginState extends State<Login> {
 // text aditing controller
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  // login method
+  void login() {
+/*
+ we will do here the authentication 
 
-  Future<void> signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+
+
+
+*/
   }
+
+  // Future<void> signUserIn() async {
+  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //     email: emailController.text.trim(),
+  //     password: passwordController.text.trim(),
+  //   );
+  // }
 
   @override
   void dispose() {
@@ -52,18 +62,18 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              context.go('/');
+              context.go('/day_18');
             },
             icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Login Page',
           style: TextStyle(
-            color: Colors.lightGreen.shade500,
+            color: Theme.of(context).colorScheme.inversePrimary,
           ),
         ),
         centerTitle: true,
       ),
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -75,16 +85,19 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 30,
                   ),
-                  const Icon(
-                    Icons.lock,
+                  Icon(
+                    Icons.lock_open,
                     size: 140,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                   const SizedBox(
                     height: 30,
                   ),
                   Text(
-                    "Welcome back! you've been missed",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 15),
+                    "E COMMERCE APP",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontSize: 15),
                   ),
                   const SizedBox(height: 25),
                   MyTextField(
@@ -143,20 +156,23 @@ class _LoginState extends State<Login> {
                   ),
                   Text(
                     'Forgot Password',
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary),
                     textAlign: TextAlign.start,
                   ),
                   const SizedBox(height: 30),
                   MyButton(
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        String email = emailController.text.trim();
-                        String password = passwordController.text.trim();
+                      context.go('/home_dash');
+                      // if (_formKey.currentState!.validate()) {
+                      //   String email = emailController.text.trim();
+                      //   String password = passwordController.text.trim();
 
-                        debugPrint('Email: $email, Password: $password');
-                        signUserIn();
-                        const AuthPage();
-                      }
+                      //   debugPrint('Email: $email, Password: $password');
+                      //   login;
+                      //   // signUserIn();
+                      //   // const AuthPage();
+                      // }
                     },
                     title: "Sign In",
                   ),
@@ -172,7 +188,9 @@ class _LoginState extends State<Login> {
                       ),
                       Text(
                         ' Or With ',
-                        style: TextStyle(color: Colors.grey[500]),
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).colorScheme.inversePrimary),
                       ),
                       const Expanded(
                         child: Divider(
@@ -202,19 +220,21 @@ class _LoginState extends State<Login> {
                     children: [
                       Text(
                         'Not A Member?',
-                        style: TextStyle(color: Colors.grey[700]),
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).colorScheme.inversePrimary),
                       ),
                       const SizedBox(
                         width: 4,
                       ),
                       InkWell(
-                        onTap: () {
-                          context.go('/register');
-                        },
-                        child: const Text(
+                        onTap: () => context.go('/register_user'),
+                        child: Text(
                           'Register Now!',
                           style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],

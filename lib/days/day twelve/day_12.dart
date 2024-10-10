@@ -31,11 +31,11 @@ class DayTwelve extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const MyButton(
+            MyButton(
               title: "Example 2",
-              // onTap: () {
-              //   context.go('/day_12_1');
-              // },
+              onTap: () {
+                context.go('/day_12_1');
+              },
             ),
           ],
         ),

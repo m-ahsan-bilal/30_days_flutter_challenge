@@ -1,42 +1,78 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/days/day14/auth/auth_page.dart';
-import 'package:flutter_challenge/utils/dialoge.dart';
-
 import 'package:flutter_challenge/utils/my_button.dart';
 import 'package:flutter_challenge/utils/my_text_field.dart';
 import 'package:flutter_challenge/utils/square_tile.dart';
 import 'package:go_router/go_router.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginUser19 extends StatefulWidget {
+  // final void Function()? onTap;
+
+  const LoginUser19({
+    super.key,
+  });
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginUser19> createState() => _LoginUser19State();
 }
 
-class _LoginState extends State<Login> {
+class _LoginUser19State extends State<LoginUser19> {
   final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-// obscure text
   bool _obscureText = true;
+  bool _isLoading = false; // New loading state
+  String? _errorMessage; // To store and display custom error messages
+
+  final emailFocus = FocusNode();
+  final passwordFocus = FocusNode();
+  final _formKey = GlobalKey<FormState>();
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  // Toggles password visibility
   void _togglePasswordVisibility() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
 
-  final emailFocus = FocusNode();
-  final passwordFocus = FocusNode();
-  final _formKey = GlobalKey<FormState>();
-// text aditing controller
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  // Login method with Firebase Authentication
+  Future<void> login() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
+      });
+      try {
+        // Firebase Authentication logic
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
 
-  Future<void> signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+        // If successful, navigate to home dashboard
+        context.go('/home_dash');
+      } on FirebaseAuthException catch (e) {
+        // Handle authentication errors
+        if (e.code == 'user-not-found') {
+          setState(() {
+            _errorMessage = 'No user found for that email.';
+          });
+        } else if (e.code == 'wrong-password') {
+          setState(() {
+            _errorMessage = 'Wrong password provided for that user.';
+          });
+        } else {
+          setState(() {
+            _errorMessage = 'An error occurred. Please try again later.';
+          });
+        }
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   @override
@@ -52,18 +88,18 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              context.go('/');
+              context.go('/day_18');
             },
             icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Login Page',
           style: TextStyle(
-            color: Colors.lightGreen.shade500,
+            color: Theme.of(context).colorScheme.inversePrimary,
           ),
         ),
         centerTitle: true,
       ),
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -72,21 +108,23 @@ class _LoginState extends State<Login> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Icon(
-                    Icons.lock,
+                  const SizedBox(height: 30),
+                  Icon(
+                    Icons.lock_open,
                     size: 140,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  const SizedBox(height: 30),
                   Text(
-                    "Welcome back! you've been missed",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 15),
+                    "E COMMERCE APP",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontSize: 15,
+                    ),
                   ),
                   const SizedBox(height: 25),
+
+                  // Email field with validation
                   MyTextField(
                     focusNode: emailFocus,
                     controller: emailController,
@@ -96,21 +134,18 @@ class _LoginState extends State<Login> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your email';
                       }
-
                       if (!regex.hasMatch(value)) {
                         return 'Please enter a valid email';
                       }
                       return null;
                     },
                     onFieldSubmitted: (_) {
-                      // Move focus to the next field when Enter is pressed
                       FocusScope.of(context).requestFocus(passwordFocus);
                     },
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  // password textfield
+                  const SizedBox(height: 20),
+
+                  // Password field with validation
                   MyTextField(
                     focusNode: passwordFocus,
                     controller: passwordController,
@@ -126,99 +161,103 @@ class _LoginState extends State<Login> {
                       return null;
                     },
                     onFieldSubmitted: (_) {
-                      // close keyboard
                       FocusScope.of(context).unfocus();
                     },
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility_off : Icons.visibility,
                       ),
-                      onPressed: () {
-                        _togglePasswordVisibility();
-                      },
+                      onPressed: _togglePasswordVisibility,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
+                  const SizedBox(height: 20),
+
                   Text(
                     'Forgot Password',
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 30),
-                  MyButton(
-                    onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        String email = emailController.text.trim();
-                        String password = passwordController.text.trim();
 
-                        debugPrint('Email: $email, Password: $password');
-                        signUserIn();
-                        const AuthPage();
-                      }
-                    },
-                    title: "Sign In",
+                  const SizedBox(height: 30),
+
+                  // Display error messages
+                  if (_errorMessage != null)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Text(
+                        _errorMessage!,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    ),
+
+                  const SizedBox(height: 10),
+
+                  // Sign In button with loading indicator
+                  MyButton(
+                    onTap: _isLoading
+                        ? null
+                        : login, // Disable button when loading
+                    title: _isLoading ? "Signing In..." : "Sign In",
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Divider and social media sign in options
                   Row(
                     children: [
                       const Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                        ),
+                        child: Divider(thickness: 0.5),
                       ),
                       Text(
                         ' Or With ',
-                        style: TextStyle(color: Colors.grey[500]),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
                       ),
                       const Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                        ),
+                        child: Divider(thickness: 0.5),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
+                  const SizedBox(height: 20),
+
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SquareTile(imagePath: "assets/images/google.png"),
-                      SizedBox(
-                        width: 30,
-                      ),
+                      SizedBox(width: 30),
                       SquareTile(imagePath: "assets/images/facebook.png"),
                     ],
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
+
+                  const SizedBox(height: 50),
+
+                  // Register Now link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Not A Member?',
-                        style: TextStyle(color: Colors.grey[700]),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
                       ),
-                      const SizedBox(
-                        width: 4,
-                      ),
+                      const SizedBox(width: 4),
                       InkWell(
-                        onTap: () {
-                          context.go('/register');
-                        },
-                        child: const Text(
+                        onTap: () => context.go('/register_user'),
+                        child: Text(
                           'Register Now!',
                           style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

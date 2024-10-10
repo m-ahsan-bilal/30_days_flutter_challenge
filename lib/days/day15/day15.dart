@@ -104,19 +104,19 @@ class _Day15State extends State<Day15> {
               fetchWeather(value);
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           ElevatedButton(
               onPressed: () {
                 fetchWeather(cityController.text.trim());
               },
-              child: Text('Search')),
-          SizedBox(
+              child: const Text('Search')),
+          const SizedBox(
             height: 16,
           ),
           if (isLoading)
-            CircularProgressIndicator()
+            const CircularProgressIndicator()
           else if (errorMessage.isNotEmpty)
             Text(errorMessage)
           else if (weatherData.isNotEmpty)

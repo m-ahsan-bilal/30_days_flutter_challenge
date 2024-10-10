@@ -9,6 +9,7 @@ class FirestoreServices {
   Future<void> addNote(String note) async {
     try {
       await notes.add({'note': note, 'timestamp': Timestamp.now()});
+      // ignore: avoid_print
       print('Note added successfully');
     } catch (e) {
       print('Error adding note: $e');
